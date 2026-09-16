@@ -4,21 +4,25 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: #2c3e50;
+    background-color: #f5f7fa;
 }
 
 /* 导航栏样式 */
 .navbar {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #5b7dd4 0%, #7b6ba8 100%);
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -32,55 +36,140 @@ body {
 
 .logo {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 600;
     color: white;
+    letter-spacing: 0.5px;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .nav-menu a {
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
 }
 
 .nav-menu a:hover {
-    opacity: 0.7;
+    color: white;
+    border-bottom-color: rgba(255, 255, 255, 0.5);
 }
 
 /* 头部样式 */
 .header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #5b7dd4 0%, #7b6ba8 100%);
     color: white;
-    padding: 6rem 2rem;
+    padding: 5rem 2rem;
     text-align: center;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    max-width: 900px;
 }
 
 .header-content h1 {
     font-size: 3.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     animation: fadeInDown 0.8s ease;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .header-content .subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
     opacity: 0.95;
+    animation: fadeInUp 0.8s ease 0.1s both;
+    font-weight: 500;
 }
 
 .header-content .description {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.8;
     opacity: 0.9;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: white;
+    color: #5b7dd4;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 @keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -99,133 +188,333 @@ body {
 .section {
     background: white;
     margin: 3rem 0;
-    padding: 3rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     animation: fadeIn 0.6s ease;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .section h2 {
-    font-size: 2.5rem;
-    color: #667eea;
+    font-size: 2rem;
+    color: #5b7dd4;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 3px solid #667eea;
+    border-bottom: 3px solid #5b7dd4;
+    font-weight: 700;
 }
 
 .content {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.8;
     color: #555;
+}
+
+.content p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.content p:last-child {
+    margin-bottom: 0;
 }
 
 /* 教育经历项 */
 .education-item {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    border-left: 4px solid #667eea;
-    background-color: #f8f9ff;
-    border-radius: 5px;
+    border-left: 4px solid #5b7dd4;
+    background-color: #f8f9fb;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.education-item:hover {
+    box-shadow: 0 4px 12px rgba(91, 125, 212, 0.15);
 }
 
 .education-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
 }
 
 .education-header h3 {
-    color: #333;
-    font-size: 1.3rem;
+    color: #2c3e50;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-.time {
-    background-color: #667eea;
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
+.education-header div {
+    flex: 1;
 }
 
 .school {
-    color: #764ba2;
+    color: #7b6ba8;
     font-weight: 600;
     margin: 0.5rem 0;
+    font-size: 0.95rem;
 }
 
-.description {
+.time {
+    background-color: #5b7dd4;
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.coursework {
     color: #666;
     margin-top: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
-/* 工作经历项 */
+.achievement {
+    color: #7b6ba8;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.status {
+    color: #27ae60;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* 实习经历项 */
 .experience-item {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    border-left: 4px solid #764ba2;
-    background-color: #faf8ff;
-    border-radius: 5px;
+    border-left: 4px solid #7b6ba8;
+    background-color: #faf8fc;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.experience-item:hover {
+    box-shadow: 0 4px 12px rgba(123, 107, 168, 0.15);
 }
 
 .experience-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
 }
 
 .experience-header h3 {
-    color: #333;
-    font-size: 1.3rem;
+    color: #2c3e50;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.experience-header div {
+    flex: 1;
 }
 
 .company {
-    color: #764ba2;
+    color: #7b6ba8;
     font-weight: 600;
     margin: 0.5rem 0;
+    font-size: 0.95rem;
 }
 
 .responsibilities {
-    margin-left: 1.5rem;
+    margin-left: 0;
     margin-top: 1rem;
-    color: #666;
+    color: #555;
+    line-height: 1.8;
 }
 
 .responsibilities li {
+    margin: 0.6rem 0;
+    margin-left: 1.5rem;
+}
+
+/* 项目卡片 */
+.project-card {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    border-left: 4px solid #5b7dd4;
+    background-color: #f8f9fb;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0 6px 16px rgba(91, 125, 212, 0.2);
+    transform: translateY(-2px);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.project-header h3 {
+    color: #2c3e50;
+    font-size: 1.25rem;
+    font-weight: 700;
+    flex: 1;
+}
+
+.project-category {
+    display: inline-block;
+    background-color: #e8f0fe;
+    color: #5b7dd4;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.project-content {
+    color: #555;
+    line-height: 1.8;
+}
+
+.project-section {
+    margin-bottom: 1.5rem;
+}
+
+.project-section:last-child {
+    margin-bottom: 0;
+}
+
+.project-section h4 {
+    color: #5b7dd4;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.project-section p {
+    margin-bottom: 0.5rem;
+}
+
+.project-section ul {
+    margin-left: 1.5rem;
+}
+
+.project-section li {
     margin: 0.5rem 0;
+}
+
+/* 实践项 */
+.practice-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-left: 4px solid #7b6ba8;
+    background-color: #faf8fc;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.practice-item:hover {
+    box-shadow: 0 4px 12px rgba(123, 107, 168, 0.15);
+}
+
+.practice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.practice-header h3 {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    font-weight: 600;
+    flex: 1;
+}
+
+.role {
+    color: #7b6ba8;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* 荣誉奖项 */
+.honors-section {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e0e0e0;
+}
+
+.honors-section h3 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.honors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.honor-item {
+    background: linear-gradient(135deg, #e8f0fe, #f5f2ff);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    color: #5b7dd4;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(91, 125, 212, 0.2);
+}
+
+.honor-item:hover {
+    background: linear-gradient(135deg, #5b7dd4, #7b6ba8);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(91, 125, 212, 0.3);
 }
 
 /* 技能网格 */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .skill-category {
-    background: linear-gradient(135deg, #667eea15, #764ba215);
+    background: linear-gradient(135deg, #f8f9fb 0%, #f5f2ff 100%);
     padding: 1.5rem;
     border-radius: 8px;
-    border-top: 4px solid #667eea;
+    border-left: 4px solid #5b7dd4;
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    box-shadow: 0 4px 12px rgba(91, 125, 212, 0.2);
+    transform: translateY(-2px);
 }
 
 .skill-category h3 {
-    color: #667eea;
+    color: #5b7dd4;
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 
 .skill-category ul {
@@ -237,22 +526,24 @@ body {
     color: #555;
     padding-left: 1.5rem;
     position: relative;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .skill-category li:before {
-    content: "✓";
+    content: "▸";
     position: absolute;
     left: 0;
-    color: #667eea;
+    color: #5b7dd4;
     font-weight: bold;
 }
 
 /* 联系信息 */
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .contact-item {
@@ -260,91 +551,319 @@ body {
     align-items: center;
     gap: 1.5rem;
     padding: 1.5rem;
-    background: linear-gradient(135deg, #667eea15, #764ba215);
+    background: linear-gradient(135deg, #f8f9fb 0%, #f5f2ff 100%);
     border-radius: 8px;
+    border-left: 4px solid #5b7dd4;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    box-shadow: 0 4px 12px rgba(91, 125, 212, 0.2);
+    transform: translateY(-2px);
 }
 
 .contact-item .icon {
     font-size: 2.5rem;
+    flex-shrink: 0;
 }
 
 .contact-item .label {
-    font-weight: 600;
-    color: #667eea;
+    font-weight: 700;
+    color: #5b7dd4;
     margin-bottom: 0.3rem;
+    font-size: 0.9rem;
 }
 
 .contact-item p {
     margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.contact-item a {
+    color: #5b7dd4;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    word-break: break-all;
+}
+
+.contact-item a:hover {
+    color: #7b6ba8;
+    text-decoration: underline;
 }
 
 /* 页脚 */
 .footer {
     background: #2c3e50;
-    color: white;
+    color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem;
     margin-top: 3rem;
+    font-size: 0.95rem;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .nav-menu {
-        gap: 1rem;
-        font-size: 0.9rem;
-    }
+.footer p {
+    margin: 0;
+}
 
-    .header-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .header-content .subtitle {
-        font-size: 1.2rem;
-    }
-
+/* 响应式设计 - 平板 */
+@media (max-width: 1024px) {
     .section {
-        padding: 2rem;
-        margin: 2rem 0;
+        padding: 2.5rem 1.5rem;
     }
 
     .section h2 {
         font-size: 1.8rem;
     }
 
-    .education-header,
-    .experience-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .time {
-        margin-top: 0.5rem;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
     .header-content h1 {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 
     .nav-menu {
-        flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* 响应式设计 - 手机 */
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .nav-menu a {
+        padding: 0.2rem 0;
+    }
+
+    .header-content h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .header-content .subtitle {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .header-content .description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .header {
+        padding: 3rem 1.5rem;
+        min-height: auto;
     }
 
     .section {
+        margin: 2rem 0;
         padding: 1.5rem;
     }
 
     .section h2 {
         font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .education-item,
+    .experience-item,
+    .practice-item,
+    .project-card {
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .education-header,
+    .experience-header,
+    .practice-header,
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .time {
+        align-self: flex-start;
+        margin-top: 0.5rem;
+    }
+
+    .skills-grid,
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .skill-category,
+    .contact-item {
+        padding: 1.2rem;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .contact-item .icon {
+        font-size: 2rem;
+    }
+
+    .header-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .honors-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-section {
+        margin-bottom: 1rem;
+    }
+}
+
+/* 响应式设计 - 小屏幕 */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-menu {
+        gap: 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .nav-menu a {
+        padding: 0.1rem 0;
+    }
+
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-content .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .header-content .description {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    .header {
+        padding: 2rem 1rem;
+    }
+
+    .section {
+        margin: 1.5rem 0;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .content {
+        font-size: 0.95rem;
+    }
+
+    .content p {
+        margin-bottom: 0.8rem;
+    }
+
+    .education-item,
+    .experience-item,
+    .practice-item,
+    .project-card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 6px;
+    }
+
+    .education-header h3,
+    .experience-header h3,
+    .practice-header h3,
+    .project-header h3 {
+        font-size: 1rem;
+    }
+
+    .school,
+    .company,
+    .role {
+        font-size: 0.9rem;
+    }
+
+    .time {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.7rem;
+    }
+
+    .skills-grid,
+    .contact-info,
+    .honors-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .skill-category,
+    .contact-item {
+        padding: 1rem;
+    }
+
+    .skill-category h3,
+    .contact-item .label {
+        font-size: 0.95rem;
+    }
+
+    .skill-category li,
+    .contact-item p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.5rem;
+    }
+
+    .footer {
+        padding: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .honor-item {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .project-section h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .project-section p,
+    .project-section li {
+        font-size: 0.9rem;
+    }
+}
+
+/* 支持减少动画的用户系统设置 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
     }
 }
